@@ -9,9 +9,9 @@ DRAFT!
   - [What are the properties of good tests](#what-are-the-properties-of-good-tests)
   - [What are the properties of really good tests](#what-are-the-properties-of-really-good-tests)
   - [What are the properties of bad tests](#what-are-the-properties-of-bad-tests)
-  - [What to ask yourself/pair/mob when writing a test](#what-to-ask-yourselfpairmob-when-writing-a-test)
+  - [What to ask your self, your pair, or your mob when writing a test](#what-to-ask-your-self-your-pair-or-your-mob-when-writing-a-test)
   - [What to ensure after writing a test](#what-to-ensure-after-writing-a-test)
-  - [Why TDD/BDD is helpful](#why-tddbdd-is-helpful)
+  - [Why TDD or BDD are helpful](#why-tdd-or-bdd-are-helpful)
   - [When to use a test double](#when-to-use-a-test-double)
   - [Front end testing](#front-end-testing)
     - [What does a good UI test look like?](#what-does-a-good-ui-test-look-like)
@@ -26,11 +26,11 @@ DRAFT!
   - [Glossary](#glossary)
 
 ## Introduction
-This is a living document intended to act as a go to document to cosnult when you need to know what, where, why, when and how to write and maintain great automated tests suites.
+This is a living document intended to act as a go to document to consult when you need to know what, where, why, when and how to write and maintain great automated tests suites.
 
-As almost all terminology is overloaded and/or overused when it comes to testing a glossary is provided to know what definitation a term has in the context of this document. For any alternative meaning to any word/phrase it should be called out explicitly when used.
+As almost all terminology is overloaded and/or overused when it comes to testing a glossary is provided to know what definition a term has in the context of this document. For any alternative meaning to any word/phrase it should be called out explicitly when used.
 
-This document is intended to povide a pragmatic reference and any info conatined in it is the consensus of the group and not of an individual. When something needs to change then it should with an end goal of providing consistent advice.
+This document is intended to provide a pragmatic reference and is the consensus of the group and not of an individual. When something needs to change then it should with an end goal of providing consistent advice.
 
 ## The purpose automated of tests
 Tests provide a way to provide confidence that our code does and continues behave as intended. They are the most efficient way to provide confidence at *scale* to both your teams and your future selves. Anything that needs to be manually demonstrated to provide confidence to more that twice should be automated.
@@ -59,13 +59,13 @@ From a complete automated test suite, an entire codebase can be re-created from 
 
 ## What are the properties of bad tests
 * Slow
-* Flakey - sometimes they pass sometimes they don't
+* Flaky - sometimes they pass sometimes they don't
 * Hard to understand. i.e. require digging through code to grasp what they test or how they test it
 * Mock everything
-* Difficult to get running (versioning, keys, libraries, env vars)
-* Any code within the sytem that is there only to facilitate testing (i.e. pubic instead of private)
+* Difficult to get running (versioning, keys, libraries, env variables)
+* Any code within the system that is there only to facilitate testing (i.e. pubic instead of private)
 
-## What to ask yourself/pair/mob when writing a test
+## What to ask your self, your pair, or your mob when writing a test
 * Is this the right layer to test at
 * Is this test describing a behaviour and not an implementation
 * Is this test easy to understand
@@ -76,16 +76,16 @@ From a complete automated test suite, an entire codebase can be re-created from 
 * DOes the test failure describe what failed and why?
 * Does the test failure describe it's negative impact on the system?
 * Does the test failure quickly guide the reader to correct location to remediate?
-* Does the test run at a  frequentcy that is proportional to it's criticality (i.e. every file save, once a week)
+* Does the test run at a frequency that is proportional to it's criticality (i.e. every file save, once a week)
 
-## Why TDD/BDD is helpful
+## Why TDD or BDD are helpful
 * Ensures you understand the problem before you create the solution
-* Decribes the desired behavour and it's solution via code in programmatically
-* Allows dependcies to be indetified in advance
+* Describes the desired behaviour and it's solution via code in programmatically
+* Allows dependency to be identified in advance
 * Provides confidence in the correctness of location of implementation
 * Makes sure you don't *forget* to write good tests later
 * Allows your future self and colleagues to continue where left off quickly
-* Aides in identifying gotchas which need other external collaborators to be complete
+* Aides in identifying hard to see "gotchas" which need other external collaborators to be complete
 
 ## When to use a test double
 * For anything that is
@@ -94,16 +94,16 @@ From a complete automated test suite, an entire codebase can be re-created from 
   * Not within your domain (tests should provide you the confidence *your* system works, contract tests can be used to assert an external system still behaves as expected)
 
 ## Front end testing
-A user interface shouldn't contain any form of business logic. This decouples the user design, user experience, medium of deliery and method of interaction from the core of the solution system, allowing for maximum flexibility and reuse.  
+A user interface shouldn't contain any form of business logic. This decouples the user design, user experience, medium of delivery and method of interaction from the core of the solution system, allowing for maximum flexibility and reuse.  
   
 This begs the question then **what to test** in the UI?  
 The answer is any user action or intention and the result to that action or of that intention which is specific to that user's experience.
 
-The content below is from the perspective of react but is transferrable to other front end technologies.
+The content below is from the perspective of react but is transferable to other front end technologies.
 
 ### What does a good UI test look like?
-* An automated test which verifies an interface's behaviours via assertions that are on the elements *idenitfiable by* and/or *interacted with* by the interface's user
-* They are *agnostic to* and/or *respectve of* differences in devices by adapating with responsiveness to changes in their appearance/function (orientation, size, zoom level, screen reading)
+* An automated test which verifies an interface's behaviours via assertions that are on the elements *identifiable by* and/or *interacted with* by the interface's user
+* They are *agnostic to* and/or *respective of* differences in devices by adapting with responsiveness to changes in their appearance/function (orientation, size, zoom level, screen reading)
 
 ### Finding elements
   * Finds elements under test
@@ -111,7 +111,7 @@ The content below is from the perspective of react but is transferrable to other
     * label text, alt text, element titles, placeholder text, and other displayed values. [Source](https://testing-library.com/docs/queries/about)
     * using `data-testid`s which should be a last resort, (instead ask yourself, how can a user find it, if I can't?)
   * Does not locate elements via
-    * css stying and classes
+    * css styling and classes
     * system defined identifiers. i.e. html ids or tag names
     * document `queryBy` selectors
     * DOM traversal. i.e. `firstChildElement`.
@@ -129,7 +129,7 @@ The content below is from the perspective of react but is transferrable to other
     * A [comprehensive DOM orientated](https://github.com/testing-library/jest-dom#custom-matchers) list
   * Should not be on:
     * If a function within the system has been called, instead test the result of that function
-    * That a component renders given a set of props, instead assert the result elements or functionality for HOCs has occured
+    * That a component renders given a set of props, instead assert the result elements or functionality for a HOC has occurred
 
 ### User Actions
     * Should be
@@ -140,12 +140,12 @@ The content below is from the perspective of react but is transferrable to other
 ### Snapshots
     * Capture the markup, structure and content of the rendered interface as a snapshot
     * Good snapshots
-      * Render the document structure heirachy in it's final form
-      * Are diffed on the important aspects and elements of the markup. (HTML attribtues or python whitespace)
-      * Are most useful as a warning indicator that something that is rendered to the user has been changed and to doule check that change is intentional
+      * Render the document structure hierarchy in it's final form
+      * Are diffed on the important aspects and elements of the markup. (HTML attributes or python whitespace)
+      * Are most useful as a warning indicator that something that is rendered to the user has been changed and to double check that change is intentional
     * Bad snapshots
       * Have no real content (open closing tags in markup)
-      * Include every component single property and no varation on them which affects what is rendered by the component
+      * Include every component single property and no variation on them which affects what is rendered by the component
       * Have features which have no sematic value \[Function\], \[Object object\]
       * Don't have readable/useful/valuable differences when viewed by a developer
       * Are HUGE
@@ -154,7 +154,7 @@ The content below is from the perspective of react but is transferrable to other
 * Manual Tests
 * End to End tests
 * External System Integration tests
-* Interal integraion tests
+* Internal integration tests
 * Unit tests
 * Static tests
 
@@ -165,7 +165,7 @@ The content below is from the perspective of react but is transferrable to other
 * Snapshot tests (pixels, DOM structure, serialized object comparison)
 * End to end testing (simulating real user use)
 * Performance testing (how quickly does the system return result from input)
-* Load testing (how does the system behave when interacted with from multiple souces concurrently)
+* Load testing (how does the system behave when interacted with from multiple sources concurrently)
   
 ## Types of test coverage
 * File
@@ -179,7 +179,7 @@ The content below is from the perspective of react but is transferrable to other
 * Complete input enumeration (enums)
 * Boundary values
 * Error cases
-* Nullabales, incomplete data
+* Nullables, incomplete data
 * Random 
 * Black box 
 * White box
@@ -194,7 +194,7 @@ The content below is from the perspective of react but is transferrable to other
 * **unit test**: test(s) on a single isolated system behaviour 
 * **acceptance test**: tests that encompasses a complete user workflow within the system
 * **manual test**: any test where manual intervention is required
-* **end to end test**: A test which involved verfies a behaviour across all systems invovled
+* **end to end test**: A test which involved verifies a behaviour across all systems involved
 * **smoke test**: A simple test on a production system to verify it is operational, failure generally indicates a larger more critical system failure
 * **TDD**
   * Testing driven design
@@ -202,7 +202,7 @@ The content below is from the perspective of react but is transferrable to other
   * Testing driven discovery
 * **BDD**: Behaviour driven design
 * **Spy**: A testing tool which allows augmentation at run time and provides information about the code under test. (i.e. number of calls, calling arguments, return arguments, isolated timing)
-* **Stub**: A testing tool which performs a NOOP, which allows a functionality to be ignored so that depenedent code can continue to execute (i.e. a logger that just logs nowhere)
+* **Stub**: A testing tool which performs a NOOP, which allows a functionality to be ignored so that dependent code can continue to execute (i.e. a logger that just logs nowhere)
 * **Fake**: A testing tool which returns canned static data (i.e. an implementation of a dependent API which returns static json blobs)
-* **Mock**: A testing tool which allows providing an alternative implementation of a dependency (i.e. changing an inderminate return (random) to return a predermined set of values)
+* **Mock**: A testing tool which allows providing an alternative implementation of a dependency (i.e. changing an indeterminate return (random) to return a predetermined set of values)
 * **Test double**: A class or function with an implementation that is only used for testing purposes. (i.e. An IO implementation which just operates in memory instead of disk or network etc.)
