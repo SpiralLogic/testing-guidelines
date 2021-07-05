@@ -33,14 +33,14 @@ As almost all terminology is overloaded and/or overused when it comes to testing
 This document is intended to provide a pragmatic reference and is the consensus of the group and not of an individual. When something needs to change then it should with an end goal of providing consistent advice.
 
 ## The purpose automated of tests
-Tests provide a way to provide confidence that our code does and continues behave as intended. They are the most efficient way to provide confidence at *scale* to both your teams and your future selves. Anything that needs to be manually demonstrated to provide confidence to more that twice should be automated.
+Tests provide a way to provide confidence that our code does and continues behave as intended. They are the most efficient way to provide confidence at *scale* to both your teams and your future selves. Anything that needs to be manually demonstrated to provide confidence more that twice should be automated.
 
 ## Guiding principles
 * Data is sacred!
 * Code is disposable!
 * A test should aim to resemble the way the system should be used to maximise confidence is behaves as intended
 
-From a complete automated test suite, an entire codebase can be re-created from scratch with an equivalent level of confidence without disrupting any real data.
+From a complete automated test suite, an entire codebase can be re-created from scratch with an equivalent level of confidence and functionality without disrupting any real data.
 
 ## What are the properties of good tests
 * Fast
@@ -145,7 +145,7 @@ The content below is from the perspective of react but is transferable to other 
       * Are most useful as a warning indicator that something that is rendered to the user has been changed and to double check that change is intentional
     * Bad snapshots
       * Have no real content (open closing tags in markup)
-      * Include every component single property and no variation on them which affects what is rendered by the component
+      * Include only one variation of a  component's properties
       * Have features which have no sematic value \[Function\], \[Object object\]
       * Don't have readable/useful/valuable differences when viewed by a developer
       * Are HUGE
